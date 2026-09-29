@@ -1,0 +1,543 @@
+/* =========================================================
+   EOC YOUTH — WELCOME LANDING PAGE
+   ========================================================= */
+
+:root {
+    --navy: #050b17;
+    --navy-soft: #091426;
+    --blue: #168cff;
+    --cyan: #56d9ff;
+    --purple: #7357ff;
+    --white: #ffffff;
+    --text: #e8eef7;
+    --muted: #aab7c9;
+    --border: rgba(255, 255, 255, 0.12);
+    --glass: rgba(4, 12, 25, 0.62);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: var(--navy);
+    color: var(--white);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   PAGE BACKGROUND
+   ========================================================= */
+
+.page {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 9, 20, 0.94) 0%,
+            rgba(3, 9, 20, 0.82) 35%,
+            rgba(3, 9, 20, 0.54) 65%,
+            rgba(3, 9, 20, 0.72) 100%
+        ),
+        url("assets/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    isolation: isolate;
+}
+
+
+/* Ambient colour */
+
+.page::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 20% 45%,
+            rgba(22, 140, 255, 0.17),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 78% 30%,
+            rgba(115, 87, 255, 0.16),
+            transparent 32%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.topbar {
+    width: 100%;
+
+    padding: 26px 5vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        rgba(3, 9, 20, 0.35);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+
+.logo {
+    width: 44px;
+    height: 44px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+.brand-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.22em;
+
+    color: var(--white);
+}
+
+
+.year {
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    flex: 1;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 70px 5vw 80px;
+}
+
+
+.hero-content {
+    width: min(720px, 100%);
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 24px;
+
+    color: var(--cyan);
+
+    font-size: 0.72rem;
+    font-weight: 700;
+
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+
+.eyebrow-line {
+    width: 34px;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple)
+        );
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   HEADLINE
+   ========================================================= */
+
+h1 {
+    margin-bottom: 25px;
+
+    font-size: clamp(4rem, 9vw, 7.8rem);
+
+    line-height: 0.88;
+
+    font-weight: 800;
+
+    letter-spacing: -0.065em;
+}
+
+
+h1 span {
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff 0%,
+            #65d8ff 48%,
+            #8871ff 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro {
+    max-width: 570px;
+
+    margin-bottom: 13px;
+
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+
+    line-height: 1.45;
+
+    font-weight: 500;
+
+    color: var(--text);
+}
+
+
+.description {
+    max-width: 570px;
+
+    margin-bottom: 34px;
+
+    font-size: 0.98rem;
+
+    line-height: 1.75;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+   ========================================================= */
+
+.continue-button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    min-width: 205px;
+
+    padding: 16px 18px 16px 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(22, 140, 255, 0.92),
+            rgba(115, 87, 255, 0.92)
+        );
+
+    color: var(--white);
+
+    text-decoration: none;
+
+    font-size: 0.92rem;
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+
+    box-shadow:
+        0 15px 40px rgba(20, 100, 255, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.continue-button:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255, 255, 255, 0.38);
+
+    box-shadow:
+        0 20px 55px rgba(50, 110, 255, 0.34);
+}
+
+
+.continue-button:active {
+    transform: translateY(-1px);
+}
+
+
+.arrow {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    font-size: 1.2rem;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.continue-button:hover .arrow {
+    transform: translateX(4px);
+
+    background:
+        rgba(255, 255, 255, 0.23);
+}
+
+
+/* =========================================================
+   SMALL HINT
+   ========================================================= */
+
+.hint {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-top: 24px;
+
+    font-size: 0.72rem;
+
+    color: rgba(232, 238, 247, 0.58);
+
+    letter-spacing: 0.05em;
+}
+
+
+.dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 12px rgba(86, 217, 255, 0.8);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 18px 5vw;
+
+    border-top: 1px solid var(--border);
+
+    background:
+        rgba(3, 9, 20, 0.45);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: rgba(232, 238, 247, 0.52);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.footer-divider {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(86, 217, 255, 0.7);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+        padding: 20px 22px;
+    }
+
+
+    .brand-name {
+        font-size: 0.68rem;
+    }
+
+
+    .logo {
+        width: 38px;
+        height: 38px;
+    }
+
+
+    .hero {
+        padding:
+            65px 24px
+            70px;
+    }
+
+
+    h1 {
+        font-size:
+            clamp(4rem, 19vw, 6rem);
+    }
+
+
+    .intro {
+        font-size: 1.15rem;
+    }
+
+
+    .description {
+        font-size: 0.92rem;
+    }
+
+
+    .continue-button {
+        width: 100%;
+
+        max-width: 330px;
+    }
+
+
+    .footer {
+        flex-direction: column;
+
+        gap: 7px;
+
+        padding:
+            17px 20px;
+
+        text-align: center;
+    }
+
+
+    .footer-divider {
+        display: none;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+    }
+
+}
