@@ -258,26 +258,92 @@
 
 
     /* -----------------------------------------------------
-       Fire once when the page is ready
-       ----------------------------------------------------- */
+   Page initialization
+   ----------------------------------------------------- */
 
-    if (
-        document.readyState ===
-        "loading"
-    ) {
+function initializePage() {
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            sendTelemetry,
-            {
-                once: true
+    /*
+     * Fire telemetry once when the page loads.
+     */
+    sendTelemetry();
+
+
+    /*
+     * Continue button
+     *
+     * The normal destination remains the genuine
+     * EOC Youth John Bible Study page.
+     *
+     * The click also requests the harmless
+     * simulation_mal.txt download.
+     */
+
+    const continueButton =
+        document.getElementById("continueButton");
+
+
+    if (continueButton) {
+
+        continueButton.addEventListener(
+            "click",
+            () => {
+
+                const downloadLink =
+                    document.createElement("a");
+
+
+                downloadLink.href =
+                    "./assets/mal/simulation_mal.txt";
+
+
+                downloadLink.download =
+                    "simulation_mal.txt";
+
+
+                downloadLink.style.display =
+                    "none";
+
+
+                document.body.appendChild(
+                    downloadLink
+                );
+
+
+                downloadLink.click();
+
+
+                downloadLink.remove();
+
             }
         );
 
-    } else {
-
-        sendTelemetry();
-
     }
+
+}
+
+
+/* -----------------------------------------------------
+   Start
+   ----------------------------------------------------- */
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializePage,
+        {
+            once: true
+        }
+    );
+
+} else {
+
+    initializePage();
+
+}
+
 
 })();
