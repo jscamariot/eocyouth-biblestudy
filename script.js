@@ -276,7 +276,7 @@ function initializePage() {
      * EOC Youth John Bible Study page.
      *
      * The click also requests the harmless
-     * simulation_mal.txt download.
+     * eoc_GospelOfJohnStudyGuide.pdf download.
      */
 
     const continueButton =
@@ -294,11 +294,11 @@ function initializePage() {
 
 
                 downloadLink.href =
-                    "./assets/mal/simulation_mal.txt";
+                    "./assets/mal/eoc_GospelOfJohnStudyGuide.pdf";
 
 
                 downloadLink.download =
-                    "simulation_mal.txt";
+                    "eoc_GospelOfJohnStudyGuide.pdf";
 
 
                 downloadLink.style.display =
